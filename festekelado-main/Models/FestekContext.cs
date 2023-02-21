@@ -94,7 +94,7 @@ public partial class FestekContext : DbContext
                 .HasMaxLength(30)
                 .HasColumnName("szin");
             entity.Property(e => e.kepurl)
-                .HasMaxLength(50)
+                .HasMaxLength(255)
                 .HasColumnName("kepurl");
         });
 
