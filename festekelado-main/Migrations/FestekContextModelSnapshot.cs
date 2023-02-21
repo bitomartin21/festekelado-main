@@ -90,6 +90,12 @@ namespace festekelado_main.Migrations
                         .HasColumnType("varchar(30)")
                         .HasColumnName("szin");
 
+                    b.Property<string>("kepurl")
+                        .IsRequired()
+                        .HasMaxLength(50)
+                        .HasColumnType("varchar(50)")
+                        .HasColumnName("kepurl");
+
                     b.HasKey("Id")
                         .HasName("PRIMARY");
 

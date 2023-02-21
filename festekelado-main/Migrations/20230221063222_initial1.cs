@@ -35,7 +35,8 @@ namespace festekelado_main.Migrations
                     id = table.Column<int>(type: "int(11)", nullable: false)
                         .Annotation("MySQL:ValueGenerationStrategy", MySQLValueGenerationStrategy.IdentityColumn),
                     szin = table.Column<string>(type: "varchar(30)", maxLength: 30, nullable: false),
-                    db = table.Column<int>(type: "int(11)", nullable: false)
+                    db = table.Column<int>(type: "int(11)", nullable: false),
+                    kepurl = table.Column<string>(type: "varchar(50)", maxLength: 50, nullable: false)
                 },
                 constraints: table =>
                 {

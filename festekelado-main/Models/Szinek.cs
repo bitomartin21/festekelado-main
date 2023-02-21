@@ -12,6 +12,8 @@ public partial class Szinek
 
     public int Db { get; set; }
 
+    public string kepurl {get; set; }
+
     [JsonIgnore] //ezzel nem jelenik meg swaggerben
     public virtual ICollection<Rendelesek> Rendeleseks { get; } = new List<Rendelesek>();
 }
