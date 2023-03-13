@@ -66,6 +66,9 @@ public partial class FestekContext : DbContext
             entity.Property(e => e.Szinid)
                 .HasColumnType("int(11)")
                 .HasColumnName("szinid");
+            entity.Property(e => e.osszar)
+                .HasColumnType("int(11)")
+                .HasColumnName("osszar");
 
             entity.HasOne(d => d.Futar).WithMany(p => p.Rendeleseks)
                 .HasForeignKey(d => d.Futarid)
@@ -93,6 +96,9 @@ public partial class FestekContext : DbContext
             entity.Property(e => e.Szin)
                 .HasMaxLength(30)
                 .HasColumnName("szin");
+            entity.Property(e => e.ar)
+                .HasColumnType("int(11)")
+                .HasColumnName("ar");
             entity.Property(e => e.kepurl)
                 .HasMaxLength(255)
                 .HasColumnName("kepurl");

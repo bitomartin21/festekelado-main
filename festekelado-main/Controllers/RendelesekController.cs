@@ -1,4 +1,5 @@
 ﻿using festekelado_main.Models;
+using festekelado_main.Repository;
 using Microsoft.AspNetCore.Mvc;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -9,7 +10,52 @@ namespace festekelado_main.Controllers
     [ApiController]
     public class RendelesekController : ControllerBase
     {
-        
+        private readonly FestekRepository _context;
+
+        public RendelesekController(FestekRepository context)
+        {
+            _context = context;
+        }
+
+        [HttpGet]
+        public async Task<IEnumerable<Rendelesek>> Get()
+        {
+            return await _context.GetRendelesek();
+        }
+
+        [HttpGet("id")]
+        public async Task<Rendelesek> Get(int id)
+        {
+            return await _context.GetRendeles(id);
+        }
+
+
+        [HttpPost]
+        public async Task<Rendelesek> Post(Rendelesek rendeles)
+        {
+            return await _context.AddRendeles(rendeles);
+        }
+
+        [HttpPut]
+        public async Task<Rendelesek> Put(Rendelesek rendeles)
+        {
+            return await _context.UpdateRendeles(rendeles);
+        }
+
+        [HttpDelete]
+        public async Task<Rendelesek> Delete(int id)
+        {
+            return await _context.DeleteRendeles(id);
+        }
+
+
+
+
+
+
+
+
+        /*
         [HttpGet]
         public IActionResult Get()
         {
@@ -80,7 +126,6 @@ namespace festekelado_main.Controllers
             }
         }
 
-        
         [HttpDelete]
         public IActionResult Delete(int id)
         {
@@ -99,6 +144,6 @@ namespace festekelado_main.Controllers
                     return BadRequest(ex.Message);
                 }
             }
-        }
+        }*/
     }
 }

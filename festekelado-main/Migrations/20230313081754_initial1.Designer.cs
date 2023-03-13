@@ -11,7 +11,7 @@ using festekelado_main.Models;
 namespace festekelado_main.Migrations
 {
     [DbContext(typeof(FestekContext))]
-    [Migration("20230221063222_initial1")]
+    [Migration("20230313081754_initial1")]
     partial class initial1
     {
         /// <inheritdoc />
@@ -66,6 +66,10 @@ namespace festekelado_main.Migrations
                         .HasColumnType("int(11)")
                         .HasColumnName("szinid");
 
+                    b.Property<int>("osszar")
+                        .HasColumnType("int(11)")
+                        .HasColumnName("osszar");
+
                     b.HasKey("Id")
                         .HasName("PRIMARY");
 
@@ -93,10 +97,14 @@ namespace festekelado_main.Migrations
                         .HasColumnType("varchar(30)")
                         .HasColumnName("szin");
 
+                    b.Property<int>("ar")
+                        .HasColumnType("int(11)")
+                        .HasColumnName("ar");
+
                     b.Property<string>("kepurl")
                         .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("varchar(50)")
+                        .HasMaxLength(255)
+                        .HasColumnType("varchar(255)")
                         .HasColumnName("kepurl");
 
                     b.HasKey("Id")

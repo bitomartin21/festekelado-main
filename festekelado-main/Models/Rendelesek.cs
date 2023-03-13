@@ -14,7 +14,10 @@ public partial class Rendelesek
 
     public int Rendeltdb { get; set; }
 
+    public int osszar { get; set; }
+
     public string Címzett { get; set; } = null!;
+
 
     [JsonIgnore] //ezzel nem jelenik meg swaggerben
     public virtual Futarok? Futar { get; set; }

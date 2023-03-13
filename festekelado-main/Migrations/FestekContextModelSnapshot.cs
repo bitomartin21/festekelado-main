@@ -63,6 +63,10 @@ namespace festekelado_main.Migrations
                         .HasColumnType("int(11)")
                         .HasColumnName("szinid");
 
+                    b.Property<int>("osszar")
+                        .HasColumnType("int(11)")
+                        .HasColumnName("osszar");
+
                     b.HasKey("Id")
                         .HasName("PRIMARY");
 
@@ -90,10 +94,14 @@ namespace festekelado_main.Migrations
                         .HasColumnType("varchar(30)")
                         .HasColumnName("szin");
 
+                    b.Property<int>("ar")
+                        .HasColumnType("int(11)")
+                        .HasColumnName("ar");
+
                     b.Property<string>("kepurl")
                         .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("varchar(50)")
+                        .HasMaxLength(255)
+                        .HasColumnType("varchar(255)")
                         .HasColumnName("kepurl");
 
                     b.HasKey("Id")

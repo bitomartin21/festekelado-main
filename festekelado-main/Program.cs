@@ -1,4 +1,6 @@
 using festekelado_main.Models;
+using festekelado_main.Repository;
+using festekelado_main.Services;
 
 namespace festekelado_main
 {
@@ -16,6 +18,7 @@ namespace festekelado_main
                 options.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
             });
             builder.Services.AddDbContext<FestekContext>();
+            builder.Services.AddScoped<FestekRepository, FestekService>();
             builder.Services.AddControllers();
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();

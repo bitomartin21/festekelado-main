@@ -36,7 +36,8 @@ namespace festekelado_main.Migrations
                         .Annotation("MySQL:ValueGenerationStrategy", MySQLValueGenerationStrategy.IdentityColumn),
                     szin = table.Column<string>(type: "varchar(30)", maxLength: 30, nullable: false),
                     db = table.Column<int>(type: "int(11)", nullable: false),
-                    kepurl = table.Column<string>(type: "varchar(50)", maxLength: 50, nullable: false)
+                    kepurl = table.Column<string>(type: "varchar(255)", maxLength: 255, nullable: false),
+                    ar = table.Column<int>(type: "int(11)", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -53,6 +54,7 @@ namespace festekelado_main.Migrations
                     futarid = table.Column<int>(type: "int(11)", nullable: true),
                     szinid = table.Column<int>(type: "int(11)", nullable: true),
                     rendeltdb = table.Column<int>(type: "int(11)", nullable: false),
+                    osszar = table.Column<int>(type: "int(11)", nullable: false),
                     címzett = table.Column<string>(type: "varchar(50)", maxLength: 50, nullable: false)
                 },
                 constraints: table =>

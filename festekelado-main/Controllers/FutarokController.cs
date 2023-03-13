@@ -1,4 +1,5 @@
 ﻿using festekelado_main.Models;
+using festekelado_main.Repository;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -9,6 +10,49 @@ namespace festekelado_main.Controllers
     public class FutarokController : ControllerBase
     {
 
+        private readonly FestekRepository _context;
+
+        public FutarokController(FestekRepository context)
+        {
+            _context = context;
+        }
+
+        [HttpGet]
+        public async Task<IEnumerable<Futarok>> Get()
+        {
+            return await _context.GetFutarok();
+        }
+
+        [HttpGet("id")]
+        public async Task<Futarok> Get(int id)
+        {
+            return await _context.GetFutar(id);
+        }
+
+        [HttpGet("name")]
+        public async Task<IEnumerable<object>> GetName(string name)
+        {
+            return await _context.GetFutarName(name);
+        }
+
+        [HttpPost]
+        public async Task<Futarok> Post(Futarok futar)
+        {
+            return await _context.AddFutar(futar);
+        }
+
+        [HttpPut]
+        public async Task<Futarok> Put(Futarok futar)
+        {
+            return await _context.UpdateFutar(futar);
+        }
+
+        [HttpDelete]
+        public async Task<Futarok> Delete(int id)
+        {
+            return await _context.DeleteFutar(id);
+        }
+        /*
         [HttpGet]
         public IActionResult Get()
         {
@@ -98,6 +142,6 @@ namespace festekelado_main.Controllers
                     return BadRequest(ex.Message);
                 }
             }
-        }
+        }*/
     }
 }

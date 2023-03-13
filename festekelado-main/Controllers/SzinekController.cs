@@ -1,6 +1,8 @@
 ﻿using festekelado_main.Models;
+using festekelado_main.Repository;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace festekelado_main.Controllers
 {
@@ -8,7 +10,50 @@ namespace festekelado_main.Controllers
     [ApiController]
     public class SzinekController : ControllerBase
     {
+        private readonly FestekRepository _context;
 
+        public SzinekController(FestekRepository context)
+        {
+            _context = context;
+        }
+
+        [HttpGet]
+        public async Task<IEnumerable<Szinek>> Get()
+        {
+            return await _context.GetSzinek();
+        }
+
+        [HttpGet("id")]
+        public async Task<Szinek> Get(int id)
+        {
+            return await _context.GetSzin(id);
+        }
+
+        [HttpGet("name")]
+        public async Task<IEnumerable<object>> GetName(string name)
+        {
+            return await _context.GetSzinName(name);
+        }
+
+        [HttpPost]
+        public async Task<Szinek> Post(Szinek szin)
+        {
+            return await _context.AddSzin(szin);
+        }
+
+        [HttpPut]
+        public async Task<Szinek> Put(Szinek szinek)
+        {
+            return await _context.UpdateSzin(szinek);
+        }
+
+        [HttpDelete]
+        public async Task<Szinek> Delete(int id)
+        {
+            return await _context.DeleteSzin(id);
+        }
+
+        /*
         [HttpGet]
         public IActionResult Get()
         {
@@ -99,5 +144,6 @@ namespace festekelado_main.Controllers
                 }
             }
         }
+        */
     }
 }
